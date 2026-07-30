@@ -1,6 +1,6 @@
 # Introduction to Data Science — Course Outlines
 
-## BS Data Science (4th Semester)
+## BS Data Science (3rd Semester)
 
 ---
 

@@ -1,6 +1,6 @@
 # Part 5: Machine Learning Foundations
 
-> Comprehensive Lecture Notes for BS Data Science (4th Semester)
+> Comprehensive Lecture Notes for BS Data Science (3rd Semester)
 
 ---
 

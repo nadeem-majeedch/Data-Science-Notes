@@ -1,6 +1,6 @@
 # Part 2: Data Processing & Wrangling
 
-> Comprehensive Lecture Notes for BS Data Science (4th Semester)
+> Comprehensive Lecture Notes for BS Data Science (3rd Semester)
 
 ---
 

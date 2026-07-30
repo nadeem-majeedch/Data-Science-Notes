@@ -146,7 +146,8 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 
 ## Author
 
-**Nadeem Majeed** — Assistant Professor, Data Science  
+**Engr. Dr. Muhammad Nadeem Majeed** — Professor, Department of Data Science  
+University of the Punjab, Lahore  
 Created for BS Data Science (3rd Semester) — Introduction to Data Science course.
 
 ---

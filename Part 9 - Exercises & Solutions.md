@@ -1,6 +1,6 @@
 # Part 9: Exercises & Practice Problems
 
-> Practice problems with solutions for BS Data Science (3rd Semester) — Introduction to Data Science.
+> Practice problems with solutions for BS Data Science.
 > Work through each problem before reading the solution. Problems are marked **[Conceptual]**, **[Coding]**, or **[Challenge]** (expert-level).
 
 ---

@@ -711,3 +711,7 @@ done
 ---
 
 > **Summary**: Part 4 covers the essential programming and tooling skills every data scientist needs. Python is the primary language, but SQL is equally important for data extraction. Git ensures you don't lose work, and the command line makes you efficient. Master these tools early — they form the foundation for everything else in data science.
+
+---
+
+**← [Part 3 - Exploratory Data Analysis (EDA) & Visualization](Part%203%20-%20Exploratory%20Data%20Analysis%20(EDA)%20%26%20Visualization.md)** · **Next: [Part 5 - Machine Learning Foundations](Part%205%20-%20Machine%20Learning%20Foundations.md)** · [Back to README](README.md)

@@ -7,7 +7,7 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 ## Repository Structure
 
 ```
-├── Introduction_to_Data_Science_Outlines.md    # Full course outline (all terms)
+├── Introduction_to_Data_Science_Outlines.md    # Full course outline + weekly schedule
 ├── Part 1 - Core Concepts & Foundations.md      # What is DS, data types, sources, collection
 ├── Part 2 - Data Processing & Wrangling.md      # Cleaning, transformation, integration, reduction
 ├── Part 3 - Exploratory Data Analysis (EDA) & Visualization.md
@@ -16,8 +16,25 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 ├── Part 6 - Big Data & Databases.md             # SQL/NoSQL, Hadoop, Spark, Hive
 ├── Part 7 - Data Ethics, Governance & Communication.md
 ├── Part 8 - Emerging Topics.md                  # AI/DL, NLP, Cloud, MLOps
+├── Part 9 - Exercises & Solutions.md            # Practice problems with solutions
+├── Glossary.md                                  # Quick-reference terms by part
 └── README.md                                    # This file
 ```
+
+---
+
+## Quick Navigation
+
+| File | What's Inside |
+|------|---------------|
+| `Introduction_to_Data_Science_Outlines.md` | Full course outline + suggested weekly schedule |
+| Part 1 → Part 8 | Core lecture notes (simple explanation → simple example → expert example) |
+| `Part 9 - Exercises & Solutions.md` | Practice problems + solutions (conceptual, coding, challenge) |
+| `Glossary.md` | Every key term defined in one place |
+
+**Suggested reading order**: Outline → Part 1 → … → Part 8, then practice with Part 9. Use `Glossary.md` for quick revision.
+
+> **Note to students**: The parts build on each other. Part N+1 assumes you understand Part N.
 
 ---
 
@@ -25,7 +42,7 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 
 | Topic | Key Terms |
 |-------|-----------|
-| What is Data Science? | DS definition, DS vs AI vs ML vs Big Data, workflow (Ask → Acquire → Process → Analyze → Communicate → Deploy), roles (Data Scientist/Analyst/Engineer/ML Engineer) |
+| What is Data Science? | DS definition, DS vs AI vs ML vs Big Data, workflow (Ask → Acquire → Process → Analyze → Communicate → Deploy), roles (Data Scientist/Analyst/Engineer/ML Engineer), process frameworks (CRISP-DM, OSEMN, KDD) |
 | Types of Data | Structured, Unstructured, Semi-structured, Time-series, Cross-sectional vs Panel vs Longitudinal |
 | Data Types & Scales | Numerical (Discrete/Continuous), Categorical (Nominal/Ordinal), Measurement Scales (Nominal/Ordinal/Interval/Ratio) |
 | Data Sources | Primary vs Secondary, APIs, scraping, databases, surveys, sensors, logs, open data portals |
@@ -52,6 +69,7 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 | EDA | Summary statistics, distribution analysis, correlation analysis, pattern/anomaly detection |
 | Descriptive Statistics | Mean/Median/Mode, Variance/Std/IQR, Skewness/Kurtosis, Five-number summary |
 | Visualization | Histogram, box plot, bar chart, scatter plot, heatmap, pair plot, bubble chart, facet grid |
+| Time-series | Visualization, decomposition, stationarity, ACF/PACF, ARIMA/SARIMA forecasting, backtesting |
 | Tools | Matplotlib, Seaborn, Plotly, Tableau, ggplot2 |
 | Summary Tables | Frequency tables, contingency tables, pivot tables |
 | Statistical Foundations | Population vs Sample, CLT, LLN, Confidence Intervals, Hypothesis Testing (p-value, Type I/II errors) |
@@ -75,6 +93,7 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 | Topic | Models / Methods |
 |-------|------------------|
 | Supervised Learning | Linear Regression, Logistic Regression, Decision Trees, k-NN, Naive Bayes |
+| Ensemble Methods | Bagging, Random Forest, Boosting, Gradient Boosting, XGBoost, Stacking/Voting |
 | Regression Metrics | MSE, RMSE, MAE, R-squared |
 | Classification Metrics | Accuracy, Precision, Recall, F1-score, ROC-AUC, Confusion Matrix |
 | Unsupervised Learning | k-Means, Hierarchical, DBSCAN, Apriori (association rules) |
@@ -126,6 +145,26 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 
 ---
 
+## Assessment Plan (Suggested)
+
+| Component | Weight | Description |
+|-----------|--------|-------------|
+| Quizzes (×2) | 20% | Conceptual quizzes after every 3 weeks (Parts 1–3, then Parts 4–6) |
+| Assignment 1 | 15% | Mid-semester EDA report on a real dataset (cleaning + visualization + findings) |
+| Assignment 2 | 15% | Build and evaluate a supervised ML model end-to-end (train/test, CV, metrics) |
+| Final Project | 30% | Group project: pick a dataset, run the full workflow (Ask → … → Deploy), present findings |
+| Participation / Labs | 20% | Weekly lab submissions based on the exercises in `Part 9` |
+
+**Example project prompts**:
+- Predict house prices in your city from a scraped listing dataset.
+- Churn prediction for a telecom or banking dataset.
+- Sales forecasting for a retail chain using the time-series methods in Part 3.
+- Fairness audit: evaluate whether a model's decisions differ across demographic groups (Part 7).
+
+All projects must include: a clear business question, reproducible code (seeded), a short written report, and a dashboard or slide deck.
+
+---
+
 ## Prerequisites
 
 - Basic programming knowledge (Python recommended)
@@ -149,6 +188,12 @@ A comprehensive lecture note repository for **Introduction to Data Science** —
 **Engr. Dr. Muhammad Nadeem Majeed** — Professor, Department of Data Science  
 University of the Punjab, Lahore  
 Created for BS Data Science (3rd Semester) — Introduction to Data Science course.
+
+---
+
+## License
+
+This repository is released under the [MIT License](LICENSE). You are free to use, modify, and share these notes with attribution.
 
 ---
 

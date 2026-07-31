@@ -690,6 +690,103 @@ plt.show()
 
 ---
 
+### Time-series Analysis & Forecasting Basics
+
+**Simple Explanation**: Beyond *visualizing* a series over time, we often want to *predict* its future. Time series are special because observations are not independent — today's value depends on yesterday's. Forecasting means using that history to estimate what comes next (next month's sales, tomorrow's temperature, next week's server load).
+
+**Key concepts**:
+- **Trend**: Long-term upward or downward movement.
+- **Seasonality**: Regular, repeating pattern (daily, weekly, yearly).
+- **Stationarity**: A series is stationary if its mean and variance are constant over time and it has no trend/seasonality. Most forecasting models (like ARIMA) require stationarity. The **Dickey-Fuller test** checks it formally.
+- **ACF (Autocorrelation Function)**: Correlates the series with a lagged version of itself — "how related is today to yesterday? to 2 days ago?"
+- **PACF (Partial Autocorrelation Function)**: Same idea, but removes the effect of intermediate lags.
+- **ARIMA(p, d, q)**: AutoRegressive Integrated Moving Average. `p` = autoregressive lags, `d` = times differenced to achieve stationarity, `q` = moving-average lags.
+
+### Simple Example
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Monthly sales with a clear upward trend + yearly seasonality
+dates = pd.date_range('2020-01-01', periods=60, freq='MS')
+trend = np.linspace(50, 150, 60)
+seasonal = 20 * np.sin(2 * np.pi * np.arange(60) / 12)
+noise = np.random.normal(0, 5, 60)
+sales = trend + seasonal + noise
+
+series = pd.Series(sales, index=dates)
+
+# 1. Rolling mean (smooths noise, shows the trend)
+rolling = series.rolling(12).mean()
+
+# 2. Simple exponential smoothing (weights recent points more)
+from statsmodels.tsa.holtwinters import ExponentialSmoothing
+model = ExponentialSmoothing(series, trend='add', seasonal='add', seasonal_periods=12)
+fitted = model.fit()
+forecast = fitted.forecast(6)   # next 6 months
+
+plt.figure(figsize=(12, 5))
+plt.plot(series, label='Actual')
+plt.plot(rolling, label='12-month rolling mean', color='red')
+plt.plot(forecast, label='Forecast (next 6 months)', color='green', linewidth=2)
+plt.legend()
+plt.title('Sales with Rolling Mean and Forecast')
+plt.show()
+```
+
+### Expert Example
+ARIMA with stationarity checks, ACF/PACF analysis, and proper backtesting:
+
+```python
+from statsmodels.tsa.stattools import adfuller, acf, pacf
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+# 1. Stationarity check (Augmented Dickey-Fuller)
+result = adfuller(series.dropna())
+print(f"ADF p-value: {result[1]:.4f}  (p < 0.05 = stationary)")
+# If not stationary, difference the series:
+series_diff = series.diff().dropna()
+
+# 2. Inspect ACF/PACF to choose p and q
+# fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+# plot_acf(series_diff, ax=axes[0])
+# plot_pacf(series_diff, ax=axes[1])
+
+# 3. Walk-forward backtest (train on all data up to t, predict t+1)
+def backtest_arima(series, order, steps=12):
+    preds = []
+    history = list(series[:-steps])
+    for i in range(steps):
+        model = ARIMA(history, order=order).fit()
+        preds.append(model.forecast()[0])
+        history.append(series[len(history)])
+    return np.array(preds)
+
+# 4. Compare simple ARIMA vs SARIMA with weekly seasonality
+test_size = 12
+y_true = series[-test_size:]
+
+arima_preds = backtest_arima(series, order=(2, 1, 2))
+sarima = SARIMAX(series[:-test_size],
+                 order=(1, 1, 1), seasonal_order=(1, 1, 1, 12)).fit()
+sarima_preds = sarima.forecast(test_size)
+
+print(f"ARIMA  MAE: {mean_absolute_error(y_true, arima_preds):.2f}")
+print(f"SARIMA MAE: {mean_absolute_error(y_true, sarima_preds):.2f}")
+
+# 5. Production tip: never retrain on every step for large data —
+#    use a fixed model with periodic retraining (e.g., weekly) instead,
+#    and always log your MAE/RMSE per horizon (1-step, 7-step, 30-step)
+```
+
+**Key takeaway**: Check stationarity before modeling, use ACF/PACF to pick orders, and always evaluate forecasts with a walk-forward backtest — never test on the future you "peeked" at.
+
+---
+
 ## 14. Visualization Tools & Libraries
 
 | Tool | Simple Explanation | Best For |
@@ -1044,3 +1141,7 @@ print(f"Required sample size per group (80% power, small effect): {required_n:.0
 ---
 
 > **Summary**: Part 3 covers the art and science of exploring data before modeling. EDA is where 80% of insights are found — don't skip it. Descriptive statistics summarizes data numerically, visualization makes patterns visible, and inferential statistics helps you determine if what you see is real or just noise. The golden rule of EDA: "The more you know your data, the better your models will be."
+
+---
+
+**← [Part 2 - Data Processing & Wrangling](Part%202%20-%20Data%20Processing%20%26%20Wrangling.md)** · **Next: [Part 4 - Programming & Tools](Part%204%20-%20Programming%20%26%20Tools.md)** · [Back to README](README.md)

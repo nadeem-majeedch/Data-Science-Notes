@@ -394,6 +394,93 @@ print(f"Optimal threshold (max F1): {optimal_threshold:.3f}")
 
 ---
 
+### Ensemble Methods
+
+**Simple Explanation**: Ensembles combine *many weak models* into one strong model — like asking a committee of experts instead of one person. Two main ideas:
+- **Bagging** (Bootstrap Aggregating): Train many models in parallel, each on a random sample of the data, then average their votes. Reduces **variance** (overfitting). **Random Forest** is bagging + random feature selection at each split.
+- **Boosting**: Train models *sequentially*, each one focusing on the mistakes of the previous. Reduces **bias**. **Gradient Boosting** and **XGBoost** are the most popular.
+- **Stacking**: Train several different models, then a "meta-model" learns how to combine their predictions.
+
+| Method | Idea | Analogy | Famous Algorithms |
+|--------|------|---------|-------------------|
+| **Bagging** | Parallel models on random data samples | Many doctors each examine random samples of patients, then vote | Random Forest |
+| **Boosting** | Sequential models that fix previous errors | Students redo a test, focusing on the questions they got wrong | AdaBoost, Gradient Boosting, XGBoost, LightGBM |
+| **Stacking** | A meta-model learns to blend model outputs | A panel chair weighs each expert's opinion | Stacked classifiers |
+
+**Simple Explanation**: Random Forest is usually the first ensemble to try — it's hard to misconfigure and very robust. Gradient Boosting (XGBoost) usually wins Kaggle competitions when you have enough data and careful tuning.
+
+### Simple Example
+```python
+from sklearn.ensemble import (RandomForestClassifier, GradientBoostingClassifier,
+                              VotingClassifier)
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+
+data = load_breast_cancer()
+X_train, X_test, y_train, y_test = train_test_split(
+    data.data, data.target, test_size=0.2, random_state=42)
+
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+gb = GradientBoostingClassifier(n_estimators=100, random_state=42)
+
+# Single trees often overfit; ensembles rarely do
+rf.fit(X_train, y_train)
+gb.fit(X_train, y_train)
+
+# A voting ensemble combines both — often beats each alone
+voting = VotingClassifier([('rf', rf), ('gb', gb)], voting='soft')
+voting.fit(X_train, y_train)
+
+print(f"Random Forest accuracy:      {rf.score(X_test, y_test):.3f}")
+print(f"Gradient Boosting accuracy:  {gb.score(X_test, y_test):.3f}")
+print(f"Voting ensemble accuracy:    {voting.score(X_test, y_test):.3f}")
+```
+
+### Expert Example
+XGBoost with early stopping, hyperparameter tuning, and feature importance — the standard competitive recipe:
+
+```python
+import xgboost as xgb
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import roc_auc_score
+import matplotlib.pyplot as plt
+
+xgb_model = xgb.XGBClassifier(
+    n_estimators=1000,           # we let early stopping decide the real count
+    learning_rate=0.05,          # lower = better generalization, slower training
+    max_depth=4,                 # shallow trees prevent overfitting
+    subsample=0.8,               # bagging-style sampling
+    colsample_bytree=0.8,        # random feature sampling at each tree
+    eval_metric='auc',
+    early_stopping_rounds=50,    # stop if no improvement for 50 rounds
+    random_state=42
+)
+
+# Early stopping needs a validation set
+X_train, X_val, y_train, y_val = train_test_split(
+    X_train_full, y_train_full, test_size=0.2, random_state=42)
+
+xgb_model.fit(X_train, y_train,
+              eval_set=[(X_val, y_val)],
+              verbose=False)
+
+print(f"XGBoost ROC-AUC: {roc_auc_score(y_test, xgb_model.predict_proba(X_test)[:, 1]):.4f}")
+
+# Feature importance: which features drive predictions?
+importance = pd.Series(xgb_model.feature_importances_,
+                       index=data.feature_names).sort_values(ascending=False)
+importance.head(10).plot(kind='barh', title='Top 10 Features (XGBoost)')
+plt.show()
+
+# Production tips for gradient boosting:
+# - Scale with `tree_method='hist'` and GPU via `tree_method='gpu_hist'`
+# - LightGBM is faster on large data; CatBoost handles categoricals natively
+# - Add interaction features; trees find interactions poorly on their own
+# - Use cross-validated early stopping rather than a single validation split
+```
+
+---
+
 ## 23. Unsupervised Learning
 
 ### Simple Explanation
@@ -965,3 +1052,7 @@ customer_features['purchase_recency'] = (
 ---
 
 > **Summary**: Part 5 covers the fundamental machine learning concepts every data scientist must know. Supervised learning (regression + classification) is the most common task. Unsupervised learning finds hidden patterns. Model evaluation ensures you're not fooling yourself. And feature engineering is where the real value lies — garbage in, garbage out, but great features make great models.
+
+---
+
+**← [Part 4 - Programming & Tools](Part%204%20-%20Programming%20%26%20Tools.md)** · **Next: [Part 6 - Big Data & Databases](Part%206%20-%20Big%20Data%20%26%20Databases.md)** · [Back to README](README.md)

@@ -494,3 +494,7 @@ TBLPROPERTIES (
 ---
 
 > **Summary**: Part 6 covers the world of big data — when data is too large for traditional tools, you need distributed systems. Hadoop pioneered the concept, Spark made it fast (in-memory), and modern data architectures (lakehouse, streaming) continue to evolve. The key idea is always the same: distribute data across machines, bring computation to data, and plan for failures. For BS data scientists, understanding these concepts conceptually (and knowing when to use Spark vs. pandas vs. SQL) is more important than mastering every tool.
+
+---
+
+**← [Part 5 - Machine Learning Foundations](Part%205%20-%20Machine%20Learning%20Foundations.md)** · **Next: [Part 7 - Data Ethics, Governance & Communication](Part%207%20-%20Data%20Ethics%2C%20Governance%20%26%20Communication.md)** · [Back to README](README.md)

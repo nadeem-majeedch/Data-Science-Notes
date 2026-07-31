@@ -10,6 +10,7 @@
 - Data Science definition and lifecycle
 - Difference between Data Science, AI, ML, and Big Data
 - The Data Science workflow: Ask → Acquire → Process → Analyze → Communicate → Deploy
+- Industry process frameworks: CRISP-DM, OSEMN, KDD
 - Roles: Data Scientist, Data Analyst, Data Engineer, ML Engineer
 - Applications of Data Science across industries
 
@@ -94,6 +95,7 @@
 - **Bivariate plots**: Scatter plot, Line chart, Stacked bar, Heatmap
 - **Multivariate plots**: Pair plot, Bubble chart, Facet grid
 - Time-series visualization
+- Time-series analysis & forecasting (stationarity, ACF/PACF, ARIMA, backtesting)
 - Correlation heatmaps
 
 ## 14. Visualization Tools & Libraries
@@ -155,6 +157,7 @@
 - Definition: labeled data, known target variable
 - **Regression**: Linear Regression, Multiple Regression
 - **Classification**: Logistic Regression, Decision Trees, k-NN, Naive Bayes
+- **Ensemble methods**: Bagging, Random Forest, Boosting, Gradient Boosting, XGBoost, Stacking
 - Evaluation metrics:
   - Regression: MSE, RMSE, MAE, R-squared
   - Classification: Accuracy, Precision, Recall, F1-score, ROC-AUC, Confusion Matrix
@@ -248,6 +251,33 @@
 - Cloud platforms: AWS, GCP, Azure for data science
 - Model deployment basics (API, batch inference)
 - ML pipelines
+
+---
+
+# Suggested Weekly Schedule (14–16 Week Semester)
+
+A flexible week-by-week plan mapping topics to weeks. Combine or split weeks as needed for a 14- or 16-week semester. Each part of the notes corresponds to ~1–2 weeks of material.
+
+| Week | Part | Topics | Suggested Activities |
+|------|------|--------|----------------------|
+| 1 | Part 1 | What is DS, workflow, process frameworks, roles | Class discussion: "What data problem do you see around you?" |
+| 2 | Part 1 | Types of data, measurement scales, data sources, collection | Lab: classify 20 real datasets by type & scale |
+| 3 | Part 2 | Data wrangling: missing values, outliers, filtering | Lab: clean a messy CSV with pandas |
+| 4 | Part 2 | Data cleaning, transformation, integration, reduction | Lab: join two datasets + build a pipeline |
+| 5 | Part 3 | EDA & descriptive statistics | Lab: summary stats + distributions |
+| 6 | Part 3 | Visualization (all plot types) | Lab: reproduce charts with Seaborn/Plotly |
+| 7 | Part 3 | Summary tables, statistical foundations | Quiz 1 (Parts 1–3) + hypothesis test lab |
+| 8 | Part 4 | Python, Jupyter, vectorization | Lab: pandas performance patterns |
+| 9 | Part 4 | R overview, SQL | Lab: SQL joins + window functions |
+| 10 | Part 4 | Git, command line | Lab: git workflow + shell pipeline on logs |
+| 11 | Part 5 | Supervised learning (regression, classification) | Lab: build a classifier end-to-end |
+| 12 | Part 5 | Ensembles, model evaluation, cross-validation | Lab: tune a Random Forest vs XGBoost |
+| 13 | Part 5 | Unsupervised learning, feature engineering | Lab: clustering + feature extraction |
+| 14 | Part 6 | Big data concepts, databases | Lab: SQL vs NoSQL comparison; Spark basics |
+| 15 | Part 6–7 | Data warehousing, ethics, governance | Quiz 2 (Parts 4–6) + ethics case study |
+| 16 | Part 7–8 | Storytelling, reproducibility, emerging topics | Final project presentations |
+
+**Assessment rhythm**: A short quiz after every 3 weeks, two assignments (one mid-semester on EDA, one on ML), and a final group project. See the `README.md` grading scheme and `Part 9 - Exercises & Solutions.md` for practice problems with solutions.
 
 ---
 

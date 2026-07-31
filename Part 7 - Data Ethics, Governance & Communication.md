@@ -878,3 +878,7 @@ Month-to-month customers are 5.2x more likely to churn than annual contract hold
 ---
 
 > **Summary**: Part 7 covers the "soft skills" that separate great data scientists from merely technical ones. Ethics ensures you do no harm. Governance ensures data is trustworthy. Communication ensures insights drive action. And reproducibility ensures your work stands the test of time. A data scientist who builds an excellent model but can't explain it, gets the data unethically, and can't reproduce the results — is not a good data scientist.
+
+---
+
+**← [Part 6 - Big Data & Databases](Part%206%20-%20Big%20Data%20%26%20Databases.md)** · **Next: [Part 8 - Emerging Topics](Part%208%20-%20Emerging%20Topics.md)** · [Back to README](README.md)

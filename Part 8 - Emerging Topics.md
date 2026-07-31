@@ -784,3 +784,7 @@ best_model = mlflow.sklearn.load_model(best_model_uri)
 ---
 
 > **Summary**: Part 8 covers the cutting edge of data science. Deep Learning powers image recognition and natural language processing. Cloud and MLOps make models production-ready. And emerging trends like LLMs, AutoML, and Responsible AI are shaping the future. For a BS Data Science student, understanding these concepts at a high level prepares you for what's coming next in your career. The fundamentals you learned in Parts 1-7 will always be relevant — these emerging topics build on that foundation.
+
+---
+
+**← [Part 7 - Data Ethics, Governance & Communication](Part%207%20-%20Data%20Ethics%2C%20Governance%20%26%20Communication.md)** · **Next: [Part 9 - Exercises & Solutions](Part%209%20-%20Exercises%20%26%20Solutions.md)** · [Back to README](README.md)

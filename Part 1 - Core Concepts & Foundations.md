@@ -72,6 +72,26 @@ A fraud detection system at a payments company:
 
 ---
 
+### Industry Process Frameworks (CRISP-DM, OSEMN, KDD)
+
+**Simple Explanation**: The Ask → Acquire → Process → Analyze → Communicate → Deploy workflow is one way to describe data science. In industry, you will also hear about a few standard process frameworks that companies and teams use to organize their projects. They all describe the same loop — understand the problem, get and prepare data, build a model, and present results — just with different names and emphasis.
+
+| Framework | Simple Explanation | Phases |
+|-----------|-------------------|--------|
+| **CRISP-DM** (Cross-Industry Standard Process for Data Mining) | The most widely used framework in industry; famous for the arrow going *backwards* from evaluation to understanding — you almost always loop back | Business Understanding → Data Understanding → Data Preparation → Modeling → Evaluation → Deployment |
+| **OSEMN** (Obtain, Scrub, Explore, Model, iNterpret) | A simple, Python-community-friendly 5-step name | Obtain → Scrub → Explore → Model → Interpret |
+| **KDD** (Knowledge Discovery in Databases) | The classic academic process for finding knowledge in databases | Selection → Preprocessing → Transformation → Data Mining → Interpretation/Evaluation |
+
+**Simple Example**: A telecom company wants to reduce customer churn.
+- **CRISP-DM**: Business understanding ("each 1% churn = $2M lost") → collect call-log data → clean it → build a churn model → evaluate it against business goals → deploy a retention campaign.
+- **OSEMN**: Obtain (export billing data) → Scrub (fix missing usage records) → Explore (visualize churn by plan) → Model (logistic regression) → Interpret (tell the marketing team who to call).
+
+**Expert Example**: A bank's anti-money-laundering unit runs CRISP-DM with a formal governance structure. "Business understanding" produces a signed business requirements document and success criteria (e.g., detect 95% of flagged SAR patterns). "Data understanding" includes a data dictionary, lineage report, and quality scorecard (Great Expectations). Modeling runs in a versioned MLflow workspace with experiment tracking. "Evaluation" is a live shadow-deployment where the new model's alerts are compared against the current rules engine for 4 weeks before any business decision. "Deployment" is a Kubernetes service with drift monitoring and a quarterly model-refresh playbook. Every phase produces a formal deliverable so auditors can verify the process — which is exactly why regulated industries love CRISP-DM.
+
+**Key takeaway**: These frameworks are just different words for the same core loop. Knowing at least CRISP-DM matters because it is the de-facto industry standard and often appears in job interviews and project documentation.
+
+---
+
 ### Roles in Data Science
 
 | Role | Simple Explanation | Key Skills |
@@ -361,3 +381,7 @@ Pipeline: Filebeat > Kafka > Logstash (parsing/enrichment) > Elasticsearch > Kib
 ---
 
 > **Summary**: Part 1 establishes the foundational vocabulary and concepts of data science — what data is, where it comes from, how it's categorized, and who works with it. Students should be able to identify data types, measurement scales, and appropriate collection methods for any given problem after this module.
+
+---
+
+**Next: [Part 2 - Data Processing & Wrangling](Part%202%20-%20Data%20Processing%20%26%20Wrangling.md)** · [Back to README](README.md)

@@ -911,3 +911,7 @@ print(f"Lasso selected {selected_mask.sum()} features out of {X.shape[1]}")
 ---
 
 > **Summary**: Part 2 covers the tools and techniques to transform raw, messy data into analysis-ready form. Data scientists spend 60-80% of their time on wrangling — mastering these skills is essential. Every dataset will have missing values, inconsistencies, and noise. Knowing how to handle each situation systematically separates professionals from beginners.
+
+---
+
+**← [Part 1 - Core Concepts & Foundations](Part%201%20-%20Core%20Concepts%20%26%20Foundations.md)** · **Next: [Part 3 - Exploratory Data Analysis (EDA) & Visualization](Part%203%20-%20Exploratory%20Data%20Analysis%20(EDA)%20%26%20Visualization.md)** · [Back to README](README.md)

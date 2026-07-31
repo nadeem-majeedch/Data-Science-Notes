@@ -1,6 +1,6 @@
 # Part 8: Emerging Topics
 
-> Comprehensive Lecture Notes for BS Data Science (3rd Semester)
+> Comprehensive Lecture Notes for BS/MS Data Science
 
 ---
 

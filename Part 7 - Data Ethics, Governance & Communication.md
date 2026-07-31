@@ -1,6 +1,6 @@
 # Part 7: Data Ethics, Governance & Communication
 
-> Comprehensive Lecture Notes for BS Data Science (3rd Semester)
+> Comprehensive Lecture Notes for BS/MS Data Science
 
 ---
 

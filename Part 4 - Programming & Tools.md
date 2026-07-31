@@ -1,6 +1,6 @@
 # Part 4: Programming & Tools
 
-> Comprehensive Lecture Notes for BS Data Science (3rd Semester)
+> Comprehensive Lecture Notes for BS/MS Data Science
 
 ---
 

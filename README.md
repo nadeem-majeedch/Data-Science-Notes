@@ -202,7 +202,7 @@ All projects must include: a clear business question, reproducible code (seeded)
 
 **Engr. Dr. Muhammad Nadeem Majeed** — Professor, Department of Data Science  
 University of the Punjab, Lahore  
-Created for BS Data Science (3rd Semester) — Introduction to Data Science course.
+Created for BS/MS Data Science.
 
 ---
 

@@ -1,6 +1,6 @@
 # Part 6: Big Data & Databases
 
-> Comprehensive Lecture Notes for BS Data Science (3rd Semester)
+> Comprehensive Lecture Notes for BS/MS Data Science
 
 ---
 
